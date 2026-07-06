@@ -1,15 +1,16 @@
-package ejercicio1.estadoDelSistema;
+package ejercicio1.estadodelsistema;
 
 public class Servidor {
+
     Boolean estaOcupado;
     Solicitud solicitudEnProcesamiento;
 
     public Servidor(boolean estado) {
-        estaOcupado = estado;
+        this.estaOcupado = estado;
     }
 
     public boolean getEstaOcupado() {
-        return estaOcupado;
+        return this.estaOcupado;
     }
 
     public void pasarAOcupado(Solicitud solicitud) {
@@ -17,12 +18,13 @@ public class Servidor {
         this.solicitudEnProcesamiento = solicitud;
     }
 
-    public void setEstaOcupado(boolean estado) {
-        this.estaOcupado = estado;
+    public void pasarALibre() {
+        this.estaOcupado = false;
+        this.solicitudEnProcesamiento = null;
     }
 
-    public Solicitud getSolicitudEnProcesamiento() {
-        return solicitudEnProcesamiento;
+    public void setEstaOcupado(boolean estado) {
+        this.estaOcupado = estado;
     }
 
 }

@@ -1,16 +1,39 @@
-package ejercicio1.estadoDelSistema;
+package ejercicio1.estadodelsistema;
 
 import des.EstadoDelSistema;
 
 public class Ejercicio1 extends EstadoDelSistema {
 
-    public ColaDeSolicitudes cola;
-    public Servidor servidor;
+    private ColaDeSolicitudes cola;
+    private Servidor servidor;
 
-    @Override
     public void inicializar() {
-        this.servidor = new Servidor(false);
-        this.cola = new ColaDeSolicitudes();
+        cola = new ColaDeSolicitudes();
+        servidor = new Servidor(false);
     }
 
+    public boolean estaServidorOcupado() {
+        return servidor.getEstaOcupado();
+    }
+
+    public void encolarSolicitud(Solicitud solicitud) {
+        cola.encolarSolicitud(solicitud);
+    }
+
+    public void atenderSolicitud(Solicitud solicitud) {
+        cola.encolarSolicitud(solicitud);
+        servidor.pasarAOcupado(cola.solicitudPrioritaria());
+    }
+
+    public boolean haySolicitudesEnEspera() {
+        return cola.getCantSolicitudesEsperando() > 0;
+    }
+
+    public Solicitud obtenerSolicitudPrioritaria() {
+        return cola.solicitudPrioritaria();
+    }
+
+    public void actualizarServidorDisponible() {
+        servidor.pasarALibre();
+    }
 }

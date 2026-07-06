@@ -1,15 +1,20 @@
-package ejercicio1.componentesPropios;
+package ejercicio1.componentespropios;
 
 import des.ContadoresEstadisticos;
 
 public class ContadoresEstadisticosEjercicio1 extends ContadoresEstadisticos {
+
     private int cantSolicitudesProcesadas;
+
+    public ContadoresEstadisticosEjercicio1() {
+        super();
+    }
 
     public void inicializar() {
         cantSolicitudesProcesadas = 0;
     }
 
-    public int getCantSolicitudesProcesadas() {
+    public int getCantProcesadas() {
         return cantSolicitudesProcesadas;
     }
 

@@ -1,14 +1,16 @@
-package ejercicio1.estadoDelSistema;
+package ejercicio1.estadodelsistema;
 
 public class Solicitud {
+
     private int clase;
 
     public Solicitud() {
-        this.clase = (int) (Math.random() * 3) + 1;
+        super();
+        this.clase = (int) ((Math.random() * 3) + 1);
     }
 
     public int getClase() {
-        return clase;
+        return this.clase;
     }
 
 }
