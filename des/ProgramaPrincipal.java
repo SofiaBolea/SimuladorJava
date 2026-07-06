@@ -1,10 +1,6 @@
 package des;
 
-import ejercicio1.componentespropios.ContadoresEstadisticosEjercicio1;
-import ejercicio1.componentespropios.GeneradorDeReportesEjercicio1;
-import ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1;
-import ejercicio1.estadodelsistema.Ejercicio1;
-import ejercicio1.eventos.EventoArribarACola;
+// Importaciones específicas del modelo han sido removidas ya que se usa Reflection
 
 /* Subprograma que invoca a la Rutina de Tiempo para determinar evento inminente, 
  * transfiriendo el control a la Rutina de Evento asociada para que actualice el
@@ -62,14 +58,22 @@ public class ProgramaPrincipal {
 
 	// MODIFICAR para indicar el Estado del Sistema a Simnular
 	private static void crearComponentesDependientes() {
-		// TODO Aca se crean los componentes propios del modelo a ejecutar.
-		modelo = new Ejercicio1();
-		contadores = new ContadoresEstadisticosEjercicio1();
-		reporte = new GeneradorDeReportesEjercicio1();
-		libreria = new LibreriaDeRutinasEjercicio1();
-		Evento primerEvento = new EventoArribarACola(
-				((LibreriaDeRutinasEjercicio1) libreria).tiempoEntreArribosSolicitudes());
-		eventos = new ListaDeEventos(primerEvento);
+		try {
+			ConfiguradorXML configurador = new ConfiguradorXML();
+			configurador.cargarConfiguracion("configuracion.xml");
+			
+			modelo = configurador.getModelo();
+			contadores = configurador.getContadores();
+			reporte = configurador.getReporte();
+			libreria = configurador.getLibreria();
+			
+			Evento primerEvento = configurador.getEventoInicial();
+			eventos = new ListaDeEventos(primerEvento);
+		} catch (Exception e) {
+			System.err.println("Error al cargar la configuración desde XML:");
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 
 	// MODIFICAR para indicar el estado de Fin de Simulación
