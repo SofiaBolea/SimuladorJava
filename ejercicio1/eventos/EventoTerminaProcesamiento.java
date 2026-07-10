@@ -1,9 +1,9 @@
 package ejercicio1.eventos;
 
-import ejercicio1.componentespropios.ContadoresEstadisticosEjercicio1;
-import ejercicio1.estadodelsistema.Ejercicio1;
-import ejercicio1.estadodelsistema.Solicitud;
-import ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1;
+import ejercicio1.componentesPropios.ContadoresEstadisticosEjercicio1;
+import ejercicio1.estadoDelSistema.Ejercicio1;
+import ejercicio1.estadoDelSistema.Solicitud;
+import ejercicio1.componentesPropios.LibreriaDeRutinasEjercicio1;
 import des.ContadoresEstadisticos;
 import des.EstadoDelSistema;
 import des.Evento;

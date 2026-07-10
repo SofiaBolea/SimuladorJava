@@ -37,7 +37,7 @@ public class ConfiguradorXML {
         this.reporte = (GeneradorDeReportes) Class.forName(reporteClassName).getDeclaredConstructor().newInstance();
         this.libreria = (LibreriaDeRutinas) Class.forName(libreriaClassName).getDeclaredConstructor().newInstance();
 
-        // Configuración del evento inicial
+        //Con
         Element eventoInicialElement = (Element) doc.getElementsByTagName("eventoInicial").item(0);
         String eventoClassName = eventoInicialElement.getElementsByTagName("clase").item(0).getTextContent();
         String metodoTiempoName = eventoInicialElement.getElementsByTagName("metodoTiempo").item(0).getTextContent();

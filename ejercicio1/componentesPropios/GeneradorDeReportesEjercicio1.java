@@ -1,4 +1,4 @@
-package ejercicio1.componentespropios;
+package ejercicio1.componentesPropios;
 
 import des.ContadoresEstadisticos;
 import des.GeneradorDeReportes;

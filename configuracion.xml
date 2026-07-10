@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simulacion>
-    <modelo>ejercicio1.estadodelsistema.Ejercicio1</modelo>
-    <contadores>ejercicio1.componentespropios.ContadoresEstadisticosEjercicio1</contadores>
-    <reporte>ejercicio1.componentespropios.GeneradorDeReportesEjercicio1</reporte>
-    <libreria>ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1</libreria>
+    <modelo><!-- ruta completa de la clase del modelo del sistema, por ejemplo ejercicio1.estadodelsistema.Ejercicio1 --></modelo>
+    <contadores><!-- ruta completa de la clase del contadores del sistema, por ejemplo ejercicio1.componentespropios.ContadoresEstadisticosEjercicio1 --></contadores>
+    <reporte><!-- ruta completa de la clase del reporte del sistema, por ejemplo ejercicio1.componentespropios.GeneradorDeReportesEjercicio1 --></reporte>
+    <libreria><!-- ruta completa de la clase de la libreria del sistema, por ejemplo ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1 --></libreria>
     <eventoInicial>
-        <clase>ejercicio1.eventos.EventoArribarACola</clase>
-        <metodoTiempo>tiempoEntreArribosSolicitudes</metodoTiempo>
+        <clase><!-- ruta completa de la clase del evento inicial del sistema, por ejemplo ejercicio1.eventos.EventoArribarACola --></clase>
+        <metodoTiempo><!-- nombre del metodo que genera el tiempo del evento inicial del sistema, por ejemplo tiempoEntreArribosSolicitudes --></metodoTiempo>
     </eventoInicial>
 </simulacion>

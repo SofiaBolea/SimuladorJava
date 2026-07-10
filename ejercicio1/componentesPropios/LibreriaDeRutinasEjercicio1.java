@@ -1,4 +1,4 @@
-package ejercicio1.componentespropios;
+package ejercicio1.componentesPropios;
 
 public class LibreriaDeRutinasEjercicio1 extends des.LibreriaDeRutinas {
 
