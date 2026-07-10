@@ -44,7 +44,7 @@ Una vez que programaste tus clases, debes decirle al motor dónde encontrarlas. 
     <!-- 2. El evento inicial que arranca la simulación -->
     <eventoInicial>
         <!-- La clase de tu primer evento -->
-        <clase>ejercicio2.eventos.EventoArribarACola</clase>
+        <clase>ejercicio1.eventos.EventoArribarACola</clase>
         <!-- El nombre del método en TU LibreriaDeRutinas que calcula el tiempo de este evento -->
         <metodoTiempo>tiempoEntreArribosSolicitudes</metodoTiempo>
     </eventoInicial>
