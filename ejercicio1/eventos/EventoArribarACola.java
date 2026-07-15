@@ -5,9 +5,9 @@ import des.Evento;
 import des.EstadoDelSistema;
 import des.LibreriaDeRutinas;
 import des.ListaDeEventos;
-import ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1;
-import ejercicio1.estadodelsistema.Ejercicio1;
-import ejercicio1.estadodelsistema.Solicitud;
+import ejercicio1.componentesPropios.LibreriaDeRutinasEjercicio1;
+import ejercicio1.estadoDelSistema.Ejercicio1;
+import ejercicio1.estadoDelSistema.Solicitud;
 
 public class EventoArribarACola extends Evento {
     public EventoArribarACola(double tiempoDeOcurrencia) {

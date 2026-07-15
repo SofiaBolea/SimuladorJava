@@ -1,4 +1,4 @@
-package ejercicio1.estadodelsistema;
+package ejercicio1.estadoDelSistema;
 
 public class Solicitud {
 
