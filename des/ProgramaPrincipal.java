@@ -14,6 +14,7 @@ public class ProgramaPrincipal {
 	private static GeneradorDeReportes reporte;
 	private static LibreriaDeRutinas libreria;
 	private static ListaDeEventos eventos;
+	private static ConfiguradorXML configurador;
 
 	// NO MODIFICAR!
 	public static void main(String[] args) {
@@ -59,7 +60,7 @@ public class ProgramaPrincipal {
 	// MODIFICAR para indicar el Estado del Sistema a Simnular
 	private static void crearComponentesDependientes() {
 		try {
-			ConfiguradorXML configurador = new ConfiguradorXML();
+			configurador = new ConfiguradorXML();
 			configurador.cargarConfiguracion("configuracion.xml");
 			
 			modelo = configurador.getModelo();
@@ -76,26 +77,27 @@ public class ProgramaPrincipal {
 		}
 	}
 
-	// MODIFICAR para indicar el estado de Fin de Simulación
+	// NO MODIFICAR!
 	private static boolean terminoLaSimulacion(RelojDeSimulacion reloj, ContadoresEstadisticos contadores) {
-		// TODO Aca se debe programar según el fin sea por tiempo o cantidad.
+		String tipo = configurador.getTipoFin();
+		double valor = configurador.getValorFin();
 
-		// Ejemplo por tiempo
-		int tiempoDeSimulacion = 10;
-		if (reloj.getValor() >= tiempoDeSimulacion)
-			return true;
+		if ("tiempo".equalsIgnoreCase(tipo)) {
+			return reloj.getValor() >= valor;
+		} else if ("cantidad".equalsIgnoreCase(tipo)) {
+			try {
+				String metodo = configurador.getMetodoContadorFin();
+				java.lang.reflect.Method m = contadores.getClass().getMethod(metodo);
+				Object resultado = m.invoke(contadores);
+				double cantidad = ((Number) resultado).doubleValue();
+				return cantidad >= valor;
+			} catch (Exception e) {
+				System.err.println("Error al evaluar fin de simulacion por cantidad:");
+				e.printStackTrace();
+				System.exit(1);
+			}
+		}
 		return false;
-
-		// Ejemplo por cantidad: "Que se hayan procesado 15 solicitudes."
-		/*
-		 * ContadoresEstadisticosEjemplo contadorEjemplo =
-		 * (ContadoresEstadisticosEjemplo) contadores;
-		 * int cantidadDeSimulacion = contadorEjemplo.getCantProcesadas(),
-		 * topeDeSimulacion=15;
-		 * if(cantidadDeSimulacion >= topeDeSimulacion) return true;
-		 * return false;
-		 */
-
 	}
 
 }
