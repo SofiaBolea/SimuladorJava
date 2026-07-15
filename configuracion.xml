@@ -9,8 +9,8 @@
         <metodoTiempo>tiempoEntreArribosSolicitudes</metodoTiempo>
     </eventoInicial>
     <condicionFin>
-        <tipo>tiempo</tipo>
-        <valor>10</valor>
-        <metodoContador></metodoContador>
+        <tipo>cantidad</tipo>
+        <valor>15</valor>
+        <metodoContador>getCantProcesadas</metodoContador>
     </condicionFin>
 </simulacion>
