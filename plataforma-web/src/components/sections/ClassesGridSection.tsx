@@ -335,9 +335,7 @@ export function ClassesGridSection() {
 
       <div className="w-full min-h-[500px] border-2 border-dashed border-slate-700 rounded-2xl bg-slate-800/30 flex flex-col items-center justify-center p-8 mx-4 max-w-[calc(100%-2rem)]">
         <h3 className="text-2xl font-bold text-slate-300 mb-4">[Diagrama de Clases General UML]</h3>
-        <p className="text-slate-500 text-center max-w-2xl">
-          [Placeholder para insertar el diagrama de clases completo mostrando la herencia, las interfaces y el sistema de inyección de dependencias usado en ProgramaPrincipal].
-        </p>
+        <img src="/diagrama-de-clases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg max-w-full" />
       </div>
     </section>
   );
