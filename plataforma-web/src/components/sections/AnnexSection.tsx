@@ -57,7 +57,7 @@ export function AnnexSection() {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-5xl mx-auto">
+    <section className="py-16 md:py-24 px-4 sm:px-8 max-w-5xl mx-auto">
       <div className="mb-12 flex flex-col items-center gap-4 justify-center text-center">
         <TerminalSquare size={56} className="text-slate-400 mb-2" />
         <h2 className="text-3xl md:text-5xl font-bold text-white">Anexo: Creación de Paquetes en el IDE</h2>

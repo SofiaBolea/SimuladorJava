@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 font-sans">
       <HeroSection />
-      
+
       <div className="space-y-16 pb-32">
         <FlowComparisonSection />
         <ClassesGridSection />

@@ -9,7 +9,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-950 text-white px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-950 text-white px-4 sm:px-8">
       {/* Background gradients */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/30 blur-[120px]" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/30 blur-[120px]" />

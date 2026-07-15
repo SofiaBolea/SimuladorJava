@@ -137,7 +137,7 @@ const allClasses = [
   },
   {
     id: "evento",
-    title: "Evento (Abstracta)",
+    title: "Evento",
     category: "abstracta",
     icon: <Box size={32} />,
     desc: (
@@ -299,7 +299,7 @@ export function ClassesGridSection() {
   const filtered = filter === "todas" ? allClasses : allClasses.filter(c => c.category === filter);
 
   return (
-    <section id="clases" className="py-24 px-6 max-w-7xl mx-auto bg-slate-900/40 rounded-3xl border border-slate-800">
+    <section id="clases" className="py-16 md:py-24 px-4 sm:px-8 md:px-12 mx-4 xl:mx-auto max-w-7xl bg-slate-900/40 rounded-3xl border border-slate-800 overflow-hidden">
       <div className="mb-16 text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Arquitectura de Clases</h2>
         <p className="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
@@ -307,7 +307,7 @@ export function ClassesGridSection() {
         </p>
 
         <div className="flex justify-center flex-wrap gap-4 mb-12">
-          {["todas", "motor", "abstracta"].map(f => (
+          {["todas", "abstracta"].map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -316,7 +316,7 @@ export function ClassesGridSection() {
                 : "bg-slate-900/50 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-200"
                 }`}
             >
-              {f === "todas" ? "Todas" : f === "motor" ? "Clases del Motor" : "Clases Abstractas"}
+              {f === "todas" ? "Todas" : "Clases Abstractas"}
             </button>
           ))}
         </div>
@@ -333,9 +333,9 @@ export function ClassesGridSection() {
         ))}
       </div>
 
-      <div className="w-full min-h-[500px] border-2 border-dashed border-slate-700 rounded-2xl bg-slate-800/30 flex flex-col items-center justify-center p-8 mx-4 max-w-[calc(100%-2rem)]">
-        <h3 className="text-2xl font-bold text-slate-300 mb-4">[Diagrama de Clases General UML]</h3>
-        <img src="/diagrama-de-clases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg max-w-full" />
+      <div className="w-full min-h-[300px] md:min-h-[500px] border-2 border-dashed border-slate-700 rounded-2xl bg-slate-800/30 flex flex-col items-center justify-center p-4 md:p-8">
+        <h3 className="text-xl md:text-2xl font-bold text-slate-300 mb-4 text-center">[Diagrama de Clases General UML]</h3>
+        <img src="/diagrama-de-clases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg w-full h-auto max-w-5xl object-contain" />
       </div>
     </section>
   );
