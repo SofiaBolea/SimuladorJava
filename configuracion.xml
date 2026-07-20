@@ -9,8 +9,8 @@
         <metodoTiempo><!-- nombre del metodo que genera el tiempo del evento inicial del sistema, por ejemplo tiempoEntreArribosSolicitudes --></metodoTiempo>
     </eventoInicial>
     <condicionFin>
-        <tipo>cantidad</tipo>
-        <valor>15</valor>
-        <metodoContador>getCantProcesadas</metodoContador>
+        <tipo><!--tipo de método de finalización-->  </tipo>
+        <valor><!-- Cantidad de tiempo o bien cantidad de lo que se tome como referencia del fin--> </valor>
+        <metodoContador><!-- nombre del metodo del contandor que se tome como referencia del fin (cuando el tipo sea cantidad)--> </metodoContador>
     </condicionFin>
 </simulacion>
