@@ -8,4 +8,9 @@
         <clase><!-- ruta completa de la clase del evento inicial del sistema, por ejemplo ejercicio1.eventos.EventoArribarACola --></clase>
         <metodoTiempo><!-- nombre del metodo que genera el tiempo del evento inicial del sistema, por ejemplo tiempoEntreArribosSolicitudes --></metodoTiempo>
     </eventoInicial>
+    <condicionFin>
+        <tipo>cantidad</tipo>
+        <valor>15</valor>
+        <metodoContador>getCantProcesadas</metodoContador>
+    </condicionFin>
 </simulacion>
