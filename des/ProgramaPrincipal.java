@@ -1,9 +1,9 @@
 package des;
 
-import ejercicio1.componentespropios.ContadoresEstadisticosEjercicio1;
-import ejercicio1.componentespropios.GeneradorDeReportesEjercicio1;
-import ejercicio1.componentespropios.LibreriaDeRutinasEjercicio1;
-import ejercicio1.estadodelsistema.Ejercicio1;
+import ejercicio1.componentesPropios.ContadoresEstadisticosEjercicio1;
+import ejercicio1.componentesPropios.GeneradorDeReportesEjercicio1;
+import ejercicio1.componentesPropios.LibreriaDeRutinasEjercicio1;
+import ejercicio1.estadoDelSistema.Ejercicio1;
 import ejercicio1.eventos.EventoArribarACola;
 
 /* Subprograma que invoca a la Rutina de Tiempo para determinar evento inminente, 
