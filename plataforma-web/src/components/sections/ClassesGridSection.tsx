@@ -213,7 +213,7 @@ const allClasses = [
         methodsText={
           <div className="space-y-2 text-indigo-200/90 italic mt-2">
             <p>Esta clase no predefine métodos abstractos obligatorios.</p>
-            <p>El analista de simulación debe implementar aquí las funciones estocásticas particulares (ej. <code>generarExponencial(media)</code>) que requiera el problema a modelar.</p>
+            <p>Se deben implementar aquí las funciones estocásticas particulares (ej. <code>getTiempoQueFaltaParaQueOcurra</code>) que requiera el problema a modelar.</p>
           </div>
         }
       />
@@ -281,7 +281,7 @@ const allClasses = [
         }
         methodsText={
           <ul className="space-y-2 list-disc pl-4 marker:text-indigo-300">
-            <li><strong className="text-indigo-200">ListaDeEventos(Evento primerEvento):</strong> Constructor. Requiere inyectar el evento inicial que activará el engranaje de la simulación.</li>
+            <li><strong className="text-indigo-200">ListaDeEventos(Evento primerEvento):</strong> Constructor. Requiere inyectar el evento inicial que activará la simulación.</li>
             <li><strong className="text-indigo-200">inicializar():</strong> Limpia la colección de cualquier evento residual y reinserta el evento inicial, dejando la lista limpia para una nueva ejecución.</li>
             <li><strong className="text-indigo-200">agregar(Evento nuevoEvento):</strong> Agenda un nuevo suceso (engendrado por la lógica de algún otro evento procesado) y emite un aviso en sistema para auditar su creación.</li>
             <li><strong className="text-indigo-200">obtenerMasInminente():</strong> Identifica, extrae y elimina el evento con el menor tiempo de retardo. Inmediatamente llama a <code>actualizarListado()</code> para corregir los tiempos relativos del resto.</li>
