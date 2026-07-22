@@ -14,6 +14,9 @@ public class ConfiguradorXML {
     private GeneradorDeReportes reporte;
     private LibreriaDeRutinas libreria;
     private Evento eventoInicial;
+    private String tipoFin;
+    private double valorFin;
+    private String metodoContadorFin;
 
     public void cargarConfiguracion(String rutaXML) throws Exception {
 
@@ -51,6 +54,16 @@ public class ConfiguradorXML {
 
         this.eventoInicial = (Evento) Class.forName(eventoClassName).getDeclaredConstructor(double.class)
                 .newInstance(tiempo);
+
+        // Configuración de condición de fin
+        Element condicionFinElement = (Element) doc.getElementsByTagName("condicionFin").item(0);
+        if (condicionFinElement != null) {
+            this.tipoFin = condicionFinElement.getElementsByTagName("tipo").item(0).getTextContent();
+            this.valorFin = Double.parseDouble(condicionFinElement.getElementsByTagName("valor").item(0).getTextContent());
+            if (condicionFinElement.getElementsByTagName("metodoContador").getLength() > 0) {
+                this.metodoContadorFin = condicionFinElement.getElementsByTagName("metodoContador").item(0).getTextContent();
+            }
+        }
     }
 
     public EstadoDelSistema getModelo() {
@@ -71,5 +84,17 @@ public class ConfiguradorXML {
 
     public Evento getEventoInicial() {
         return eventoInicial;
+    }
+
+    public String getTipoFin() {
+        return tipoFin;
+    }
+
+    public double getValorFin() {
+        return valorFin;
+    }
+
+    public String getMetodoContadorFin() {
+        return metodoContadorFin;
     }
 }

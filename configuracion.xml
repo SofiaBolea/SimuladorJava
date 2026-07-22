@@ -8,4 +8,9 @@
         <clase><!-- ruta completa de la clase del evento inicial del sistema, por ejemplo ejercicio1.eventos.EventoArribarACola --></clase>
         <metodoTiempo><!-- nombre del metodo que genera el tiempo del evento inicial del sistema, por ejemplo tiempoEntreArribosSolicitudes --></metodoTiempo>
     </eventoInicial>
+    <condicionFin>
+        <tipo><!-- tipo de condicion de fin: tiempo o cantidad (notese el USO DE MINÚSCULAS) --></tipo>
+        <valor><!-- valor de la condicion de fin --></valor>
+        <metodoContador><!-- nombre del metodo que genera la cantidad del evento inicial del sistema, por ejemplo cantidadLlegadaClientes, en el caso que el tipo de condición de fin sea tiempo DEJAR ESTE CAMPO VACÍO --></metodoContador>
+    </condicionFin>
 </simulacion>
