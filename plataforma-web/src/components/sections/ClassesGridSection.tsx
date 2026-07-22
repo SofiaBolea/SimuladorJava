@@ -326,7 +326,7 @@ export function ClassesGridSection() {
       <div className="mb-16 text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Arquitectura de Clases</h2>
         <p className="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
-          Explora los componentes centrales del simulador. Haz clic o pasa el mouse sobre las tarjetas para ver sus responsabilidades.
+          Componentes centrales del simulador. Podes hacer clic o pasa el mouse sobre las tarjetas para ver sus responsabilidades. Estas clases bases son aquellas que no deben tocarse para que el simulador funcione. Las clases abstractas son las que deben extenderse para correr un modelo en particular.
         </p>
 
         <div className="flex justify-center flex-wrap gap-4 mb-12">
