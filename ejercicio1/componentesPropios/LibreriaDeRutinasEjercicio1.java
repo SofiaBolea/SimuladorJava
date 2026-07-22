@@ -12,9 +12,13 @@ public class LibreriaDeRutinasEjercicio1 extends des.LibreriaDeRutinas {
     }
 
     public int tiempoDeProcesamiento() {
-        double media = 2.5;
         double u = Math.random();
-        double tiempo = -media * Math.log(1 - u);
+
+        // Rango uniforme entre 0.5 y 2.5
+        // Fórmula: mínimo + (máximo - mínimo) * u
+        double tiempo = 0.5 + (2.5 - 0.5) * u;
+
+        // Retorna el valor redondeado a entero
         return (int) Math.round(tiempo);
     }
 

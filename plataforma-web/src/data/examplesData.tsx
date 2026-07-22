@@ -1079,7 +1079,7 @@ export const getExamplesData = (scrollTo: (id: string) => void) => ({
             <div className="p-4 flex gap-4 overflow-hidden leading-relaxed">
               {/* Line Numbers */}
               <div className="text-slate-600 select-none text-right flex flex-col">
-                {Array.from({ length: 20 }, (_, i) => (
+                {Array.from({ length: 25 }, (_, i) => (
                   <span key={i + 1}>{i + 1}</span>
                 ))}
               </div>
@@ -1117,18 +1117,27 @@ export const getExamplesData = (scrollTo: (id: string) => void) => ({
                   <span className="text-[#569cd6]">public int</span> tiempoDeProcesamiento() {"{"}
                 </div>
                 <div className="pl-8">
-                  <span className="text-[#569cd6]">double</span> media = <span className="text-[#b5cea8]">2.5</span>;
-                </div>
-                <div className="pl-8">
                   <span className="text-[#569cd6]">double</span> u = Math.random();
                 </div>
+                <div>{" "}</div>
+                <div className="pl-8 text-[#6a9955]">
+                  // Rango uniforme entre 0.5 y 2.5
+                </div>
+                <div className="pl-8 text-[#6a9955]">
+                  // Fórmula: mínimo + (máximo - mínimo) * u
+                </div>
                 <div className="pl-8">
-                  <span className="text-[#569cd6]">double</span> tiempo = -media * Math.log(<span className="text-[#b5cea8]">1</span> - u);
+                  <span className="text-[#569cd6]">double</span> tiempo = <span className="text-[#b5cea8]">0.5</span> + (<span className="text-[#b5cea8]">2.5</span> - <span className="text-[#b5cea8]">0.5</span>) * u;
+                </div>
+                <div>{" "}</div>
+                <div className="pl-8 text-[#6a9955]">
+                  // Retorna el valor redondeado a entero
                 </div>
                 <div className="pl-8">
                   <span className="text-[#569cd6]">return</span> (<span className="text-[#569cd6]">int</span>) Math.round(tiempo);
                 </div>
                 <div className="pl-4">{"}"}</div>
+                <div>{" "}</div>
                 <div>{"}"}</div>
               </div>
             </div>
