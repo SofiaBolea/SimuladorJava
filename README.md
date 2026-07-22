@@ -193,7 +193,7 @@ Vincula tus clases del modelo con el motor genérico configurándolas en el arch
     <!-- 3. Condición de fin de simulación (tipo: tiempo o cantidad) -->
     <condicionFin>
         <tipo>tiempo</tipo>
-        <valor>1000.0</valor>
+        <valor>1000</valor>
         <!-- dejar vacío si tipo es tiempo -->
         <metodoContador></metodoContador> 
     </condicionFin>
