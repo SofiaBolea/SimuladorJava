@@ -25,7 +25,7 @@ El motor de simulación está contenido en el paquete `des`. **Estas clases repr
 
 ---
 
-## 2. Diagramas de Diseño (UML)
+## 2. Diagrama de Diseño (UML)
 
 ### A. Diagrama de Clases UML
 ```mermaid
@@ -157,8 +157,6 @@ classDiagram
 
     GeneradorDeReportes ..> ContadoresEstadisticos : Procesa métricas finales
 
-
-
 ```
 
 ---
@@ -209,7 +207,4 @@ Vincula tus clases del modelo con el motor genérico configurándolas en el arch
 ---
 
 ## 4. Requisitos y Notas de Implementación
-*   **Constructores por defecto:** Todas las clases hijas que instancies mediante XML deben proveer un **constructor vacío explícito o implícito** para poder ser instanciadas por reflexión.
 *   **Nombres y mayúsculas:** Las rutas en el XML son sensibles a mayúsculas y minúsculas y deben coincidir exactamente con los nombres de paquete y clase en Java.
-*   **Muestreo aleatorio:** En la clase que extienda `LibreriaDeRutinas`, programa funciones que retornen valores (`double` o `int`) que simulen las variables estocásticas del sistema.
-
