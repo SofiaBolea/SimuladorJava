@@ -39,7 +39,10 @@ classDiagram
             -ListaDeEventos eventos$
             -ConfiguradorXML configurador$
             +main(args: String[]) void$
+            -crearComponentesDependientes() void$
+            -terminoLaSimulacion(reloj: RelojDeSimulacion, contadores: ContadoresEstadisticos) boolean$
         }
+
         class ConfiguradorXML {
             -EstadoDelSistema modelo
             -ContadoresEstadisticos contadores
@@ -50,51 +53,112 @@ classDiagram
             -double valorFin
             -String metodoContadorFin
             +cargarConfiguracion(rutaXML: String) void
+            +getModelo() EstadoDelSistema
+            +getContadores() ContadoresEstadisticos
+            +getReporte() GeneradorDeReportes
+            +getLibreria() LibreriaDeRutinas
+            +getEventoInicial() Evento
+            +getTipoFin() String
+            +getValorFin() double
+            +getMetodoContadorFin() String
         }
+
         class RelojDeSimulacion {
             -double valor
+            +RelojDeSimulacion()
             +inicializar() void
             +actualizar(valor: double) void
+            +getValor() double
         }
+
         class Evento {
             <<abstract>>
             -double tiempoQueFaltaParaQueOcurra
             -double tiempoDeOcurrencia
+            +Evento(saltoDeTiempo: double)
+            +getTiempoDeOcurrencia() double
+            +getTiempoQueFaltaParaQueOcurra() double
+            +setTiempoDeOcurrencia(tiempoDeReloj: double) void
+            -setTiempoQueFaltaParaQueOcurra(saltoDeTiempo: double) void
             +refreshTiempo(elapsedTime: double) void
             +rutinaDeEvento(modelo: EstadoDelSistema, contadores: ContadoresEstadisticos, eventos: ListaDeEventos, libreria: LibreriaDeRutinas)* void
         }
+
         class ListaDeEventos {
             #List~Evento~ lista
             #Evento primerEvento
+            +ListaDeEventos(primerEvento: Evento)
+            +inicializar() void
             +obtenerMasInminente() Evento
+            -actualizarListado(tiempoTranscurrido: double) void
             +agregar(nuevoEvento: Evento) void
         }
-        class EstadoDelSistema { <<abstract>> +inicializar()* void }
-        class ContadoresEstadisticos { <<abstract>> +inicializar()* void }
-        class LibreriaDeRutinas { <<abstract>> }
-        class GeneradorDeReportes { <<abstract>> +run(contadores: ContadoresEstadisticos)* void }
-    }
-    ProgramaPrincipal ..> ConfiguradorXML
-    ProgramaPrincipal --> RelojDeSimulacion
-    ProgramaPrincipal --> ListaDeEventos
-    ListaDeEventos "1" o-- "*" Evento
-```
 
-### B. Diagrama de Actividad UML
-```mermaid
-stateDiagram-v2
-    [*] --> Inicializacion
-    Inicializacion --> BucleSimulacion : Inicializar variables (t=0)
-    state BucleSimulacion {
-        [*] --> RutinaTiempo
-        RutinaTiempo --> RutinaEvento : Avanzar reloj y extraer evento inminente
-        RutinaEvento --> EvaluacionFin : Modificar estado y registrar contadores
-        state EvaluacionFin <<choice>>
-        EvaluacionFin --> [*] : [Condición de parada alcanzada]
-        EvaluacionFin --> RutinaTiempo : [Simulación continúa]
+        class EstadoDelSistema {
+            <<abstract>>
+            +inicializar()* void
+        }
+
+        class ContadoresEstadisticos {
+            <<abstract>>
+            +inicializar()* void
+        }
+
+        class LibreriaDeRutinas {
+            <<abstract>>
+        }
+
+        class GeneradorDeReportes {
+            <<abstract>>
+            +run(contadores: ContadoresEstadisticos)* void
+        }
+
+        class RutinaDeInicializacion {
+            +run(reloj: RelojDeSimulacion, modelo: EstadoDelSistema, contadores: ContadoresEstadisticos, eventos: ListaDeEventos, libreria: LibreriaDeRutinas) void
+        }
+
+        class RutinaDeTiempo {
+            +run(eventos: ListaDeEventos, reloj: RelojDeSimulacion) Evento
+        }
     }
-    BucleSimulacion --> ReporteFinal : Imprimir resultados
-    ReporteFinal --> [*]
+
+    %% Relaciones
+    ProgramaPrincipal ..> ConfiguradorXML : Instancia y consulta
+    ProgramaPrincipal ..> RutinaDeInicializacion : Ejecuta
+    ProgramaPrincipal ..> RutinaDeTiempo : Ejecuta ciclo
+    ProgramaPrincipal --> RelojDeSimulacion : Utiliza
+    ProgramaPrincipal --> ListaDeEventos : Utiliza
+    ProgramaPrincipal --> EstadoDelSistema : Ref. Polimórfica
+    ProgramaPrincipal --> ContadoresEstadisticos : Ref. Polimórfica
+    ProgramaPrincipal --> GeneradorDeReportes : Ref. Polimórfica
+    ProgramaPrincipal --> LibreriaDeRutinas : Ref. Polimórfica
+
+    ConfiguradorXML --> EstadoDelSistema : Instancia vía Reflection
+    ConfiguradorXML --> ContadoresEstadisticos : Instancia vía Reflection
+    ConfiguradorXML --> GeneradorDeReportes : Instancia vía Reflection
+    ConfiguradorXML --> LibreriaDeRutinas : Instancia vía Reflection
+    ConfiguradorXML --> Evento : Instancia evento inicial
+
+    ListaDeEventos "1" o-- "*" Evento : Contiene listado activo
+    ListaDeEventos --> Evento : primerEvento
+
+    RutinaDeInicializacion ..> RelojDeSimulacion : Reinicia a 0
+    RutinaDeInicializacion ..> EstadoDelSistema : Inicializa
+    RutinaDeInicializacion ..> ContadoresEstadisticos : Inicializa
+    RutinaDeInicializacion ..> ListaDeEventos : Inicializa
+
+    RutinaDeTiempo ..> ListaDeEventos : Extrae evento mas inminente
+    RutinaDeTiempo ..> RelojDeSimulacion : Avanza tiempo
+
+    Evento ..> EstadoDelSistema : Modifica en rutinaDeEvento
+    Evento ..> ContadoresEstadisticos : Actualiza métricas en rutinaDeEvento
+    Evento ..> ListaDeEventos : Agenda nuevos eventos en rutinaDeEvento
+    Evento ..> LibreriaDeRutinas : Genera muestras aleatorias en rutinaDeEvento
+
+    GeneradorDeReportes ..> ContadoresEstadisticos : Procesa métricas finales
+
+
+
 ```
 
 ---
