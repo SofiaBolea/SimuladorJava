@@ -335,7 +335,13 @@ export function ClassesGridSection() {
 
       <div className="w-full min-h-[300px] md:min-h-[500px] border-2 border-dashed border-slate-700 rounded-2xl bg-slate-800/30 flex flex-col items-center justify-center p-4 md:p-8">
         <h3 className="text-xl md:text-2xl font-bold text-slate-300 mb-4 text-center">[Diagrama de Clases General UML]</h3>
-        <img src="/diagrama-de-clases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg w-full h-auto max-w-5xl object-contain" />
+        <img src="/DiagramaDeClases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg w-full h-auto max-w-5xl object-contain" />
+        <ol className="text-slate-300 text-left ">
+          <li className="ml-4 mb-1">Las flechas sólidas (con punta) indican Asociación Directa / Atributos.Representa que una clase mantiene una referencia permanente a otra como atributo.</li>
+          <li className="ml-4 mb-1">Las flechas sólidas (con punta) indican Asociación Directa / Atributos.Representa que una clase mantiene una referencia permanente a otra como atributo.</li>
+          <li className="ml-4 mb-1">Dependencia de Uso / Parámetros de Métodos (Linea punteada): Indica que una clase interactúa temporalmente con otra (por ejemplo, pasándola como parámetro en un método).
+          </li>
+        </ol>
       </div>
     </section>
   );
