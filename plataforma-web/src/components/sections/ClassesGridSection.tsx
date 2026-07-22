@@ -282,10 +282,10 @@ const allClasses = [
         methodsText={
           <ul className="space-y-2 list-disc pl-4 marker:text-indigo-300">
             <li><strong className="text-indigo-200">ListaDeEventos(Evento primerEvento):</strong> Constructor. Requiere inyectar el evento inicial que activará la simulación.</li>
-            <li><strong className="text-indigo-200">inicializar():</strong> Limpia la colección de cualquier evento residual y reinserta el evento inicial, dejando la lista limpia para una nueva ejecución.</li>
-            <li><strong className="text-indigo-200">agregar(Evento nuevoEvento):</strong> Agenda un nuevo suceso (engendrado por la lógica de algún otro evento procesado) y emite un aviso en sistema para auditar su creación.</li>
+            <li><strong className="text-indigo-200">inicializar():</strong> Crea la lista de eventos y le asigna el evento inicial.</li>
+            <li><strong className="text-indigo-200">agregar(Evento nuevoEvento):</strong> Agenda un nuevo suceso (generado por la lógica de algún otro evento procesado) y emite un aviso en sistema para auditar su creación.</li>
             <li><strong className="text-indigo-200">obtenerMasInminente():</strong> Identifica, extrae y elimina el evento con el menor tiempo de retardo. Inmediatamente llama a <code>actualizarListado()</code> para corregir los tiempos relativos del resto.</li>
-            <li><strong className="text-indigo-200">actualizarListado(...) (Privado):</strong> Aplica una corrección regresiva equitativa sobre el resto de los eventos agendados (mediante <code>refreshTiempo()</code>), "acercándolos" paulatinamente hacia el minuto cero relativo.</li>
+            <li><strong className="text-indigo-200">actualizarListado(...) (Privado):</strong> Aplica una corrección sobre el resto de los eventos agendados (mediante <code>refreshTiempo()</code>), disminuyendo su "tiempo que falta para que ocurra" en las unidades de tiempo que transcurrieron.</li>
           </ul>
         }
       />
