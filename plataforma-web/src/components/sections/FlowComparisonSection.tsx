@@ -12,7 +12,7 @@ export function FlowComparisonSection() {
       content: (
         <div className="flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px] border-2 border-dashed border-slate-600 rounded-xl bg-slate-800/50 p-4 md:p-8">
           <figure className="flex flex-col items-center">
-            <img src="/Flujo-teorico-simulador-DES.png" alt="Flujo Teórico Simulador DES" className="rounded-lg shadow-lg max-w-full" />
+            <img src="/Flujo-teorico-simulador-DES.png" alt="Flujo Teórico Simulador DES" className="rounded-lg shadow-lg max-h-[500px] w-auto object-contain" />
             <figcaption className="mt-4 text-sm text-slate-400 italic text-center max-w-xl">
               Fuente adaptada de: "Simulation Modeling and Analysis". 5ta Ed. Law (2015). - Capítulo 1: Basic Simulation Modeling.
             </figcaption>
@@ -26,7 +26,7 @@ export function FlowComparisonSection() {
       content: (
         <div className="flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px] border-2 border-dashed border-slate-600 rounded-xl bg-slate-800/50 p-4 md:p-8">
           <figure className="flex flex-col items-center">
-            <img src="/Flujo-del-simulador-java.png" alt="Flujo Práctico Simulador Java" className="rounded-lg shadow-lg max-w-full" />
+            <img src="/DiagramaDeFlujo.png" alt="Flujo Práctico Simulador Java" className="rounded-lg shadow-lg max-h-[500px] w-auto object-contain" />
           </figure>
         </div>
       ),

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FlipCard } from "../ui/FlipCard";
-import { Box, Cog, Component, Database, Terminal, PlaySquare, Timer, BarChart, FileText } from "lucide-react";
+import { Box, Cog, Component, Database, Terminal, PlaySquare, Timer, BarChart, FileText, Settings } from "lucide-react";
 
 const CardDescriptionWithMethods = ({ mainText, methodsText }: { mainText: React.ReactNode, methodsText: React.ReactNode }) => {
   const [showMethods, setShowMethods] = useState(false);
@@ -291,6 +291,29 @@ const allClasses = [
       />
     )
   },
+  {
+    id: "configurador",
+    title: "ConfiguradorXML",
+    category: "motor",
+    icon: <Settings size={32} />,
+    desc: (
+      <CardDescriptionWithMethods
+        mainText={
+          <div className="space-y-2">
+            <p><strong>Configurador Dinámico:</strong> Responsable de la carga desacoplada del modelo y la parametrización de la simulación mediante un archivo <code>configuracion.xml</code>.</p>
+            <p>Utiliza la API de Reflexión de Java para instanciar en tiempo de ejecución los componentes específicos del problema sin necesidad de modificar el código del motor.</p>
+          </div>
+        }
+        methodsText={
+          <ul className="space-y-2 list-disc pl-4 marker:text-indigo-300">
+            <li><strong className="text-indigo-200">cargarConfiguracion(String rutaXML):</strong> Lee el XML, parsea la estructura y crea las instancias de las clases del modelo, contadores, reporte, librería y evento inicial. También extrae los límites de fin.</li>
+            <li><strong className="text-indigo-200">Getters de Componentes:</strong> Proveen acceso a los objetos instanciados para el programa principal (<code>getModelo()</code>, <code>getContadores()</code>, <code>getReporte()</code>, <code>getLibreria()</code>, <code>getEventoInicial()</code>).</li>
+            <li><strong className="text-indigo-200">Getters de Parada:</strong> Devuelven los parámetros de condición de fin (<code>getTipoFin()</code>, <code>getValorFin()</code>, <code>getMetodoContadorFin()</code>).</li>
+          </ul>
+        }
+      />
+    )
+  },
 ];
 
 export function ClassesGridSection() {
@@ -336,12 +359,11 @@ export function ClassesGridSection() {
       <div className="w-full min-h-[300px] md:min-h-[500px] border-2 border-dashed border-slate-700 rounded-2xl bg-slate-800/30 flex flex-col items-center justify-center p-4 md:p-8">
         <h3 className="text-xl md:text-2xl font-bold text-slate-300 mb-4 text-center">[Diagrama de Clases General UML]</h3>
         <img src="/DiagramaDeClases.png" alt="Diagrama de Clases General UML" className="rounded-lg shadow-lg w-full h-auto max-w-5xl object-contain" />
-        <ol className="text-slate-300 text-left ">
-          <li className="ml-4 mb-1">Las flechas sólidas (con punta) indican Asociación Directa / Atributos.Representa que una clase mantiene una referencia permanente a otra como atributo.</li>
-          <li className="ml-4 mb-1">Las flechas sólidas (con punta) indican Asociación Directa / Atributos.Representa que una clase mantiene una referencia permanente a otra como atributo.</li>
-          <li className="ml-4 mb-1">Dependencia de Uso / Parámetros de Métodos (Linea punteada): Indica que una clase interactúa temporalmente con otra (por ejemplo, pasándola como parámetro en un método).
-          </li>
-        </ol>
+        <ul className="text-slate-300 text-left list-disc pl-4 space-y-1 mt-4">
+          <li className="ml-2 mb-1"><strong>Asociación Directa / Atributos (Flecha sólida con punta):</strong> Representa que una clase mantiene una referencia permanente a otra como atributo.</li>
+          <li className="ml-2 mb-1"><strong>Herencia / Generalización (Línea sólida con triángulo vacío):</strong> Indica una relación de extensión (una subclase hereda de una superclase o clase abstracta).</li>
+          <li className="ml-2 mb-1"><strong>Dependencia de Uso (Línea punteada con punta de flecha):</strong> Indica que una clase interactúa temporalmente con otra (por ejemplo, pasándola como parámetro en un método).</li>
+        </ul>
       </div>
     </section>
   );
